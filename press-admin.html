@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+<h1 class="bkg">Press Admin Form</h1>
+<hr>
+<form id="pressadmin" action="http://localhost:8080/update/" method="post">
+<label for="Press"><strong>Title of Press:</strong></label><br> <input placeholder ="Press" type="text" name="Press"><br>
+
+<label for="Year"><strong>Year of Press:</strong></label><br> <input placeholder ="Year" type="text" name="Year"><br>
+<br>
+<label for="myfile"><strong>Press File</strong></label>
+<br>
+<input type="file" id="choosefile" name="myfile">
+<br>
+<br>
+<input id="col" type="submit" value="Update">
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#pressadmin").validate({
+ rules: {
+   Press: {
+     required: true, //This Required for the user to input press text
+     minlength: 3 //min 3 characters need to be added
+   },
+   Year: {
+     required: true, //Must Require year of Press
+     minlength: 4, //min 4 characters need to be added
+     date: true //must be an date and not a string
+   },
+
+ },
+ messages: {
+   Press: {
+     required: "Please enter your the Title of the Press", //Message that outputs
+     minlength: "Please enter at least 3 characters of the Press Title"//Message that outputs
+   },
+   Year: {
+     required: "Please enter the Date",//Message that outputs
+     minlength:"Please enter a year (ex:2020)",
+     date: "Please enter a Valid Date (ex:2020)"//Message that outputs
+
+   },
+
+ }
+})
+})
+</script>
+</body>
+</html>

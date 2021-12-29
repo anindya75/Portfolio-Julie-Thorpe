@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+<h1 class="bkg">News Admin Form</h1>
+<hr>
+<form id="newsform" action="http://localhost:8080/update/" method="post">
+<label for="News"><strong>Title of News:</strong></label><br> <input placeholder ="News" type="text" name="News"><br>
+
+<label for="day"><strong>Date:</strong></label><br> <input placeholder ="Date" type="text" name="day"><br>
+<br>
+<label for="Description"><strong>Description:</strong></label>
+<br>
+<textarea id="Description" name="Description" rows="2" cols="40" placeholder="Type your description about the news here"></textarea>
+<br>
+<label for="myfile"><strong>PDF File</strong></label>
+<br>
+<input type="file" id="choosefile" name="myfile">
+<br>
+<br>
+<input id="col" type="submit" value="Update">
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#newsform").validate({
+ rules: {
+   News: {
+     required: true, //This Required for the user to input press text
+     minlength: 2 //min 2 characters need to be added
+   },
+   day: {
+     required: true, //Must Require a date
+     minlength: 4,
+     date: true //must be an actual date or else it will be an error
+   },
+   Description: {
+     required: true, //Must Require year of Press
+     minlength: 20 //must be 20 characters or else it will be an error
+   },
+
+ },
+ messages: {
+   News: {
+     required: "Please enter your the title of the News", //Message that outputs
+     minlength: "Please enter at least 2 characters of the News Title"//Message that outputs
+   },
+   day: {
+     required: "Please enter the Date",//Message that outputs
+     minlength: "Please enter at least a Date or Year in order to be added (ex: 2020)",
+     date: "Please enter a Valid Date (ex: January 1 2020)"//Message that outputs
+
+   },
+   Description: {
+     required:"Please enter a valid Description", //Must Require year of Press
+     minlength: "Please enter more than 20 characters" //must be an actual date or else it will be an error
+   }
+
+ }
+})
+})
+</script>
+</body>
+</html>

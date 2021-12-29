@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+<h1 class="bkg">Contact Admin Form</h1>
+<hr>
+<form id="contactadmin" action="http://localhost:8080/update2/" method="post">
+
+<label for="PhoneNumber"><strong>Phone Number:</strong></label><br> <input placeholder ="Phone Number" id="PhoneNumber" type="text" name="PhoneNumber" >
+<br>
+ <label for="Extention"><strong>Extention:</strong></label> <br> <input placeholder ="Extention (Optional)" id="Extention" type="text" name="Extention" >
+
+<br>
+
+<label for="Address"><strong>Add Address:</strong></label>
+<br>
+<textarea id="Address" name="Address" rows="2" cols="40" placeholder="Type your address here"></textarea>
+<br>
+<label for="EmailAddress"><strong>Email:</strong></label><br><input placeholder ="Email" id="email" type="text" name="EmailAddress"><br>
+<br>
+
+<input id="col" type="submit" value="Update">
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#contactadmin").validate({
+ rules: {
+   PhoneNumber: {
+     required: true,
+     phoneUS: true //Must have a valid phone number
+   },
+   Extention:{
+   number: true,
+   minlength: 1 //Must have at least 1 character
+   },
+   EmailAddress: {
+     required: true, //Required to have it
+     email: true //Must have a valid email
+   },
+   Address: {
+     minlength: 10 //Must have at least 10 character
+   }
+ },
+ messages: {
+   PhoneNumber:{
+     required: "Please Enter your phone Number",
+     phoneUS: "Please enter a Valid Phone Number"
+
+   },
+   Extention:{
+     number: "Please enter a Valid Number to the Extention",//Message that outputs
+     minlength:"Please enter at least 1 character"//Message that outputs
+
+   },
+
+   EmailAddress: {
+     required: "Please enter your email address",//Message that outputs
+     email: "Please specify a valid email address"//Message that outputs
+   },
+   About: {
+     minlength: "Please enter at least 20 characters"//Message that outputs
+   }
+ }
+})
+})
+</script>
+</body>
+</html>

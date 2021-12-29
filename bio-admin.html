@@ -1,0 +1,71 @@
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+
+<h1 class="bkg">Biography Admin Form</h1>
+<hr>
+
+
+<form id="bioadmin" action="http://localhost:8080/update/" method="post">
+
+
+<label for="biography"><strong>Biography:</strong></label>
+<br>
+<textarea id="biography" name="biography" rows="10" cols="20" placeholder="Type your Biography here..."></textarea>
+
+<br>
+<label for="myfile"><strong>Profile Picture:</strong></label>
+<br>
+<input type="file" id="choosefile" name="myfile" action="http://localhost:8080/update/" method="post">
+<br>
+
+<br>
+<br>
+    <button type="submit">Update</button>
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#bioadmin").validate({
+ rules: {
+   biography: {
+     required: true,
+     minlength: 20 //min 20 characters need to be added
+   },
+ },
+ messages: {
+   biography: {
+     required: "Please enter your Biography", //Message that Output
+     minlength: "Please enter at least 20 characters of the Biography"//Message that outputs
+   }
+
+
+ }
+})
+})
+</script>
+</body>
+</html>

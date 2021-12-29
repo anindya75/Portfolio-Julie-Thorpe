@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+<h1 class="bkg">Research Program Form</h1>
+<hr>
+<form id="researchprogramadmin" action="http://localhost:8080/update/" method="post">
+
+<label for="research"><strong>Research Project:</strong></label>
+<br>
+<textarea id="research" name="research" rows="10" cols="20" placeholder="Enter your Research Project here..."></textarea>
+
+
+
+<br>
+<br>
+<input id="col" type="submit" value="Update">
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#researchprogramadmin").validate({
+ rules: {
+   research: {
+     required: true,
+     minlength: 20 //min 20 characters need to be added
+   },
+ },
+ messages: {
+   research: {
+     required: "Please enter your Research Project", //Message that Output
+     minlength: "Please enter at least 20 characters for the project"//Message that outputs
+   }
+
+
+ }
+})
+})
+</script>
+</body>
+</html>

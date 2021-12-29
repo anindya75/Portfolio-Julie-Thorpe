@@ -1,0 +1,75 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"> </script>
+  <script src="everything.js"></script>
+  <title>Julie Thorpe Website</title>
+  <link rel="stylesheet" href="css/master.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+  img {
+    border-radius: 50%;
+    border: 5px solid black;
+  }
+
+  body {
+    background-image: url('unnamed.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  </style>
+</head>
+
+
+<body ng-app="firstapp">
+
+
+
+<div class="header">
+<h1>Julie Thorpe</h1>
+</div>
+
+      <div class="navbar">
+            <a  class="live" href = "index.html"> Home </a>
+            <a href = "news.html"> News </a>
+            <a href = "pub.html"> Publications</a>
+            <a href = "press.html"> Press </a>
+            <a href = "research.html"> Research Interest and Programs </a>
+            <a href = "teaching.html"> Teaching </a>
+            <a href = "group.html"> Research Group </a>
+            <a href = "contact.html"> Contact </a>
+</div>
+
+
+<div class= "pic">
+    <img src="Photo.jpg" alt="Photo" width="300" height="300">
+  </div>
+
+
+
+  <div class="info">
+    <p> Julie Thorpe </p>
+    <p> Associate Professor </p>
+
+    <p><a  href="https://businessandit.ontariotechu.ca/people/faculty/networking-and-it-security/julie-thorpe-phd.php" class = "info">Faculty of Business and IT</a></p>
+        <p><a href="https://science.ontariotechu.ca/graduate/computer-science/index.php" class = "info">Computer Science</a></p>
+        <p><a  href="https:\\www.ontariotechu.ca" class = "info">Ontario Tech University</a></p>
+  </div>
+<hr>
+  <div class="home" ng-controller="ctrl">
+<h2 id="biography"><br>Biography</h2>
+  <p style ="color: black;"> {{biography}} <br><br>
+    </p>
+
+<a class="formlink" href ="bio-admin.html">Click here to edit the Biography</a><br><br>
+
+
+    <div class= "pic2">
+        <img src="books.jpg" alt="Photo" width="300" height="300">
+      </div>
+  </div>
+<hr>
+</body>
+</html>

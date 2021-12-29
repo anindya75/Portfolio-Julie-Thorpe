@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/master.css">
+
+<style>
+body {
+  background-image: url('adminback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</script>
+</script>
+
+<body>
+<h1 class="bkg">Teaching Admin Form</h1>
+<hr>
+<form id="teachingadmin" action="http://localhost:8080/update/" method="post">
+<label for="CourseName"><strong>Add Course Name:</strong></label><br> <input placeholder ="Course Name" type="text" name="CourseName"><br>
+
+<label for="CourseNumber"><strong>Add Course Number:</strong></label><br> <input placeholder ="Course Number" type="text" name="CourseNumber"><br>
+<br>
+
+<input id="col" type="submit" value="Update">
+
+<br>
+</form>
+<script>
+$(document).ready(function () {
+$("#teachingadmin").validate({
+  // This is my Validation Form using JQeury
+ rules: {
+   // We are setting rules in order for the user to add text
+   CourseName: {
+     required: true, //This is required
+     minlength: 3 //Character must be at least 3 character (could possibly be there intials)
+   },
+   CourseNumber: {
+     required: true,
+     minlength: 7 //Charcter must be at least 3 characters
+   },
+
+
+ },
+ messages: {
+   CourseName: {
+     required: "Please enter the course name", //Tells users that this is required and must add course name
+     minlength: "Please enter at least 3 characters" //Tells the users enter at least 3 characters
+
+   },
+   CourseNumber: {
+     required: "Please enter your Course Number", //Tells users that this is required and must add student's information
+     minlength: "Please enter at least 7 characters"
+   },
+
+
+
+ }
+})
+})
+</script>
+</body>
+</html>
